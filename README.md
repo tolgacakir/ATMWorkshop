@@ -1,2 +1,2 @@
 # ATMWorkshop
- An ATM Application
+ A Simple ATM Application
