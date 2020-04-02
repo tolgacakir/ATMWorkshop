@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPageName = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.dgAccounts = new System.Windows.Forms.DataGridView();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPageName
@@ -73,6 +77,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panel2.Controls.Add(this.dgAccounts);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 109);
             this.panel2.Name = "panel2";
@@ -97,6 +102,22 @@
             this.splitter2.TabIndex = 13;
             this.splitter2.TabStop = false;
             // 
+            // dgAccounts
+            // 
+            this.dgAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgAccounts.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgAccounts.Location = new System.Drawing.Point(103, 37);
+            this.dgAccounts.Name = "dgAccounts";
+            this.dgAccounts.Size = new System.Drawing.Size(640, 268);
+            this.dgAccounts.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +134,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAccounts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,5 +149,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.DataGridView dgAccounts;
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ATM.BusinessLogicLayer.Abstract;
+using ATM.BusinessLogicLayer.Concrete;
+using ATM.Model.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,11 @@ namespace ATM.UIWinform.Forms
 {
     public partial class LoginForm : Form
     {
+        ICustomerService _customerManager; 
         public LoginForm()
         {
             InitializeComponent();
+            _customerManager = new CustomerManager();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -30,7 +35,14 @@ namespace ATM.UIWinform.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            Customer customer = _customerManager.Login(txtUsername.Text, txtPassword.Text);
+            if(customer != null)
+            {
+                MainForm mainForm = new MainForm();
+                this.Hide();
+                mainForm.ShowDialog();
+                
+            }
         }
     }
 }

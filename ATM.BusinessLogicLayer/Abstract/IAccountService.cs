@@ -10,7 +10,7 @@ namespace ATM.BusinessLogicLayer.Abstract
 {
     public interface IAccountService
     {
-        //test
         void Update(Account account);
+        void Delete(Account account);
     }
 }

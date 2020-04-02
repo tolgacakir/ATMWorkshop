@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\BaseEntityService.cs" />
     <Compile Include="Abstract\IAccountService.cs" />
     <Compile Include="Abstract\IAtmManager.cs" />
     <Compile Include="Abstract\IBillService.cs" />
@@ -58,6 +59,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\ATM.DataAccessLayer\ATM.DataAccessLayer.csproj">
+      <Project>{3E46282E-C6CC-4094-ADD3-DE43DE00D900}</Project>
+      <Name>ATM.DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATM.Model\ATM.Model.csproj">
       <Project>{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}</Project>
       <Name>ATM.Model</Name>

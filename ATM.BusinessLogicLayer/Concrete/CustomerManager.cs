@@ -1,4 +1,5 @@
 ﻿using ATM.BusinessLogicLayer.Abstract;
+using ATM.DataAccessLayer.Concrete;
 using ATM.Model.Abstract;
 using ATM.Model.Concrete;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ATM.BusinessLogicLayer.Concrete
 {
-    public class CustomerManager : ICustomerService
+    public class CustomerManager :BaseEntityService<CustomerRepository>, ICustomerService
     {
         //TODO: customerDal
 
@@ -17,7 +18,7 @@ namespace ATM.BusinessLogicLayer.Concrete
 
         public CustomerManager()
         {
-
+            DataAccessObject = new CustomerRepository();
         }
 
 
@@ -29,8 +30,15 @@ namespace ATM.BusinessLogicLayer.Concrete
 
         public Customer Login(string username, string password)
         {
-            throw new NotImplementedException();
-
+            Customer customer = DataAccessObject.GetByPrimaryKey(username);
+            if(customer.Password == password)
+            {
+                return customer;
+            }
+            else
+            {
+                return null;
+            }
             
         }
 

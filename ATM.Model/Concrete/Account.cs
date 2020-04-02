@@ -17,6 +17,11 @@ namespace ATM.Model.Concrete
         public AccountType Type { get; set; }
         public string Owner { get; set; }
 
+        public Account()
+        {
+
+        }
+
         public Account(string iban)
         {
             Iban = iban;

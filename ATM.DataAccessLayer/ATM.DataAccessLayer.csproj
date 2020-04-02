@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,11 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IGenericRepository.cs" />
+    <Compile Include="Concrete\AccountRepository.cs" />
+    <Compile Include="Concrete\CustomerRepository.cs" />
+    <Compile Include="Concrete\GenericRepository\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\ATM.Model\ATM.Model.csproj">
+      <Project>{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}</Project>
+      <Name>ATM.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

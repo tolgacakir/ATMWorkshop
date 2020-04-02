@@ -17,7 +17,10 @@ namespace ATM.Model.Concrete
         public bool Locked { get; set; }
         public int InvalidLoginCount { get; set; }
 
+        public Customer()
+        {
 
+        }
         public Customer(string username, string firstName, string lastName, string password)
         {
             Username = username;
