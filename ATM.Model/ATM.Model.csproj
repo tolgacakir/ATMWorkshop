@@ -45,6 +45,11 @@
     <Compile Include="Abstract\AbstractTransaction.cs" />
     <Compile Include="Abstract\TransactionType.cs" />
     <Compile Include="Concrete\Bill.cs" />
+    <Compile Include="Concrete\Exceptions\CustomerCouldNotFindException.cs" />
+    <Compile Include="Concrete\Exceptions\IExceptionWithMessage.cs" />
+    <Compile Include="Concrete\Exceptions\PasswordValidationException.cs" />
+    <Compile Include="Concrete\Exceptions\UsernameValidationException.cs" />
+    <Compile Include="Concrete\Exceptions\WrongPasswordException.cs" />
     <Compile Include="Concrete\Receipt.cs" />
     <Compile Include="Concrete\Account.cs" />
     <Compile Include="Abstract\AccountType.cs" />

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATM.Model.Concrete.Exceptions
+namespace ATM.UIWinform.Forms
 {
-    public class AccountAlreadyExistException :Exception
+    public interface IPage
     {
+        IMainForm OwnerForm { get; }
+        string Title { get; }
     }
 }

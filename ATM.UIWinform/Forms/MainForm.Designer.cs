@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPageName = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMainPage = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.dgAccounts = new System.Windows.Forms.DataGridView();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAccounts)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPageName
@@ -68,21 +67,46 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMainPage);
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 494);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(840, 61);
             this.panel1.TabIndex = 10;
             // 
-            // panel2
+            // btnMainPage
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.panel2.Controls.Add(this.dgAccounts);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 109);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(840, 371);
-            this.panel2.TabIndex = 11;
+            this.btnMainPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMainPage.ForeColor = System.Drawing.Color.Black;
+            this.btnMainPage.Location = new System.Drawing.Point(438, 6);
+            this.btnMainPage.Name = "btnMainPage";
+            this.btnMainPage.Size = new System.Drawing.Size(169, 43);
+            this.btnMainPage.TabIndex = 0;
+            this.btnMainPage.Text = "Main Page";
+            this.btnMainPage.UseVisualStyleBackColor = true;
+            this.btnMainPage.Click += new System.EventHandler(this.btnMainPage_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Location = new System.Drawing.Point(234, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(169, 43);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "Logout";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // pnlFrame
+            // 
+            this.pnlFrame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pnlFrame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFrame.Location = new System.Drawing.Point(0, 109);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(840, 371);
+            this.pnlFrame.TabIndex = 11;
             // 
             // splitter1
             // 
@@ -102,29 +126,13 @@
             this.splitter2.TabIndex = 13;
             this.splitter2.TabStop = false;
             // 
-            // dgAccounts
-            // 
-            this.dgAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgAccounts.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgAccounts.Location = new System.Drawing.Point(103, 37);
-            this.dgAccounts.Name = "dgAccounts";
-            this.dgAccounts.Size = new System.Drawing.Size(640, 268);
-            this.dgAccounts.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(840, 555);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlFrame);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
@@ -133,10 +141,10 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgAccounts)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -146,9 +154,10 @@
         private System.Windows.Forms.Label lblPageName;
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlFrame;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.DataGridView dgAccounts;
+        private System.Windows.Forms.Button btnMainPage;
+        private System.Windows.Forms.Button btnClose;
     }
 }

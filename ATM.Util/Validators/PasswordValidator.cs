@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATM.Model.Concrete.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,17 @@ namespace ATM.Util.Validators
         public bool Validate(object obj)
         {
             string password = (string)obj;
-            return password.Length < 10;
+
+            if(password.Length>0 && password.Length<5)
+            {
+                return true;
+            }
+            else
+            {
+                //throw new Exception("deneme");
+                throw new PasswordValidationException();
+            }
+            
         }
     }
 }

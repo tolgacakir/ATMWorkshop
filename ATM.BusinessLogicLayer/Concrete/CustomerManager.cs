@@ -2,6 +2,7 @@
 using ATM.DataAccessLayer.Concrete;
 using ATM.Model.Abstract;
 using ATM.Model.Concrete;
+using ATM.Model.Concrete.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +31,18 @@ namespace ATM.BusinessLogicLayer.Concrete
 
         public Customer Login(string username, string password)
         {
-            Customer customer = DataAccessObject.GetByPrimaryKey(username);
-            if(customer.Password == password)
+            Customer customer = DataAccessObject.Login(username,password);
+            if(customer == null)
             {
-                return customer;
+                throw new CustomerCouldNotFindException();
+            }
+            else if (customer.Password != password)
+            {
+                throw new WrongPasswordException();
             }
             else
             {
-                return null;
+                return customer;
             }
             
         }

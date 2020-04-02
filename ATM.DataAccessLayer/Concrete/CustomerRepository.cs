@@ -22,6 +22,40 @@ namespace ATM.DataAccessLayer.Concrete
             throw new NotImplementedException();
         }
 
+
+        public Customer Login(string username, string password)
+        {
+            Customer customer = null;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string commandText = "SELECT * FROM CUSTOMERS WHERE USERNAME=@Username";
+                using (SqlCommand command = new SqlCommand(commandText, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    //command.Parameters.AddWithValue("@Password", password);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            customer = new Customer
+                            {
+                                Username = reader["USERNAME"].ToString(),
+                                FirstName = reader["FirstName"].ToString(),
+                                LastName = reader["LASTNAME"].ToString(),
+                                Password = reader["PASSWORD"].ToString(),
+                                InvalidLoginCount = int.Parse(reader["InvalidLoginCount"].ToString()),
+                                Locked = bool.Parse(reader["LOCKED"].ToString()),
+                                LoggedIn = bool.Parse(reader["LoggedIn"].ToString()),
+                            };
+                        }
+                    }
+                }
+            }
+            return customer;
+        }
+
+
         public Customer GetByPrimaryKey(object primaryKey)
         {
             Customer customer = new Customer();

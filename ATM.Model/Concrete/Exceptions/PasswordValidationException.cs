@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATM.Model.Concrete.Exceptions
 {
-    public class AccountAlreadyExistException :Exception
+    public class PasswordValidationException :Exception
     {
     }
 }

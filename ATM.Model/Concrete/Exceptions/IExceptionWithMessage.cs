@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ATM.Model.Concrete.Exceptions
 {
-    public class AccountAlreadyExistException :Exception
+    public interface IExceptionWithMessage
     {
+        string Message_ { get; }
     }
 }

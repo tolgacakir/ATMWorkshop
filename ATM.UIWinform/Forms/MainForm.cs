@@ -1,6 +1,7 @@
 ﻿using ATM.BusinessLogicLayer.Abstract;
 using ATM.BusinessLogicLayer.Concrete;
 using ATM.Model.Concrete;
+using ATM.UIWinform.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,21 +14,66 @@ using System.Windows.Forms;
 
 namespace ATM.UIWinform.Forms
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
-        IEntityLister<Customer, Account> _accountLister;
-        Customer _customer;
-        public MainForm()
+        private static MainForm Instance = new MainForm();
+
+
+        IEntityLister<Customer, Account> AccountLister;
+        LoginForm LoginForm;
+
+
+        private MainForm()
         {
             InitializeComponent();
-            _customer = new Customer("tcakir", "", "", "");
-            _accountLister = new AccountManager();
+            AccountLister = new AccountManager();
 
+        }
+
+        public static MainForm GetSingletonInstance()
+        {
+            return Instance;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            dgAccounts.DataSource = _accountLister.GetList(_customer);
+            
+        }
+
+        public void Start(Customer customer,LoginForm loginForm)
+        {
+            LoginForm = loginForm;
+            lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
+            
+            NavigatePage(MainPage.GetSingleton());
+            
+
+            //dgAccounts.DataSource = _accountLister.GetList(customer);
+            this.ShowDialog();
+        }
+
+        public void NavigatePage(IPage page)
+        {
+            foreach (UserControl p in pnlFrame.Controls)
+            {
+                p.Visible = false;
+            }
+
+            lblPageName.Text = page.Title;
+            pnlFrame.Controls.Add((UserControl)page);
+            ((UserControl)page).Dock = DockStyle.Fill;
+            ((UserControl)page).Visible = true;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm.Visible=true;
+        }
+
+        private void btnMainPage_Click(object sender, EventArgs e)
+        {
+            NavigatePage(MainPage.GetSingleton());
         }
     }
 }

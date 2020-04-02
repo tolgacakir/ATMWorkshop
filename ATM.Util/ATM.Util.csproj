@@ -64,5 +64,11 @@
   <ItemGroup>
     <Folder Include="Comparators\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATM.Model\ATM.Model.csproj">
+      <Project>{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}</Project>
+      <Name>ATM.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

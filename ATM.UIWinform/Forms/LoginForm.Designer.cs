@@ -109,9 +109,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(42, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(256, 17);
+            this.label3.Size = new System.Drawing.Size(255, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Welcome to İşBankası ATM Application.";
+            this.label3.Text = "Welcome to XBankası ATM Application.";
             // 
             // btnClear
             // 
