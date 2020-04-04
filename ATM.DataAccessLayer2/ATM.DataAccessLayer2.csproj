@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E46282E-C6CC-4094-ADD3-DE43DE00D900}</ProjectGuid>
+    <ProjectGuid>{BC5494A1-B73F-4637-ABFD-848B99CC0098}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ATM.DataAccessLayer</RootNamespace>
-    <AssemblyName>ATM.DataAccessLayer</AssemblyName>
+    <RootNamespace>ATM.DataAccessLayer2</RootNamespace>
+    <AssemblyName>ATM.DataAccessLayer2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,21 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IAccountDal.cs" />
-    <Compile Include="Abstract\ICustomerDal.cs" />
-    <Compile Include="Abstract\IGenericDal.cs" />
-    <Compile Include="Concrete\AdoNetDal\AdoNetAccountDal.cs" />
-    <Compile Include="Concrete\AdoNetDal\AdoNetCustomerDal.cs" />
-    <Compile Include="Concrete\ORM\AccountRepository.cs" />
-    <Compile Include="Concrete\ORM\IAccountRepository.cs" />
-    <Compile Include="Concrete\ORM\IRepository.cs" />
-    <Compile Include="Concrete\ORM\BaseAdoNetRepository.cs" />
-    <Compile Include="Concrete\TestDal\TestAccountDal.cs" />
-    <Compile Include="Concrete\TestDal\TestCustomerDal.cs" />
+    <Compile Include="Concrete\AdoNetRepositories\AdoNetAccountRepository.cs" />
+    <Compile Include="Concrete\AdoNetRepositories\AdoNetCustomerRepository.cs" />
+    <Compile Include="Concrete\AdoNetRepositories\BaseAdoNetRepository.cs" />
+    <Compile Include="Abstract\IRepositories\IAccountRepository.cs" />
+    <Compile Include="Abstract\IRepositories\ICustomerRepository.cs" />
+    <Compile Include="Abstract\GenericRepositories\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Concrete\EntityFrameworkDal\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATM.Model\ATM.Model.csproj">

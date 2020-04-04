@@ -1,6 +1,9 @@
 ﻿using ATM.BusinessLogicLayer.Abstract;
+using ATM.DataAccessLayer.Abstract;
 using ATM.DataAccessLayer.Concrete;
-using ATM.DataAccessLayer.Concrete.GenericRepository;
+using ATM.DataAccessLayer.Concrete.AdoNetDal;
+using ATM.DataAccessLayer.Concrete.ORM;
+using ATM.DataAccessLayer.Concrete.TestDal;
 using ATM.Model.Abstract;
 using ATM.Model.Concrete;
 using ATM.Model.Concrete.Transactions;
@@ -12,20 +15,22 @@ using System.Threading.Tasks;
 
 namespace ATM.BusinessLogicLayer.Concrete
 {
-    public class AccountManager : BaseEntityService<AccountRepository>, IAccountService, IEntityLister<Customer, Account>
+    public class AccountManager : BaseEntityService<IAccountDal>, IAccountService, IEntityLister<Customer, Account>
     {
+        IAccountRepository AccountRepository;
         public AccountManager()
         {
-            DataAccessObject = new AccountRepository();
+            DalObject = new AdoNetAccountDal();
+            AccountRepository = new AccountRepository();
         }
         public void Update(Account account)
         {
-            DataAccessObject.Update(account);
+            DalObject.Update(account);
         }
 
         public IList<Account> GetList(Customer input)
         {
-            IList<Account> accounts = DataAccessObject.GetList()
+            IList<Account> accounts = DalObject.GetList()
                 .Where(a => a.Owner == input.Username)
                 .ToList();
             return accounts;
@@ -33,7 +38,7 @@ namespace ATM.BusinessLogicLayer.Concrete
 
         public void Delete(Account account)
         {
-            DataAccessObject.Delete(account);
+            DalObject.Delete(account);
         }
     }
 }

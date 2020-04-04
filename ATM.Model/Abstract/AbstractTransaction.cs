@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,8 @@ namespace ATM.Model.Abstract
 {
     public abstract class AbstractTransaction : IEntity
     {
+        public PropertyInfo[] PropertiesForDal { get; private set; }
+        
         public int Id { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
@@ -16,5 +19,6 @@ namespace ATM.Model.Abstract
         public TransactionType Type { get; protected set; }
         public Account Source { get; set; }
         public Account Target { get; set; }
+
     }
 }

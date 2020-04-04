@@ -11,7 +11,7 @@ namespace ATM.BusinessLogicLayer.Abstract
     public class BaseEntityService<T>
         //where T: IGenericRepository<IEntity>
     {
-        protected T DataAccessObject;
-        protected string ConnectionString;
+        protected T DalObject;
+        //protected string ConnectionString;
     }
 }

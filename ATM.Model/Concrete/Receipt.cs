@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,5 +10,7 @@ namespace ATM.Model.Concrete
 {
     public class Receipt :IEntity
     {
+        public PropertyInfo[] PropertiesForDal { get; private set; }
+
     }
 }

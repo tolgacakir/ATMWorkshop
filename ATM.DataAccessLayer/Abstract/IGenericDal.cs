@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ATM.DataAccessLayer.Abstract
 {
-    public interface IGenericRepository<T>
+    public interface IGenericDal<T>
         where T:IEntity
     {
         IList<T> GetList();

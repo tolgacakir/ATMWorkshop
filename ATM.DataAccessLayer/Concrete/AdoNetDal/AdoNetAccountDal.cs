@@ -9,15 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATM.DataAccessLayer.Concrete
+namespace ATM.DataAccessLayer.Concrete.AdoNetDal
 {
-    public class AccountRepository : IGenericRepository<Account>
+    public class AdoNetAccountDal : IAccountDal
     {
         private string _connectionString;
 
-        public AccountRepository()
+        public AdoNetAccountDal()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["SQLDB"].ToString();
+            _connectionString = ConfigurationManager.ConnectionStrings["SQLDB"].ConnectionString;
         }
 
         public bool Delete(Account entity)
@@ -48,7 +48,7 @@ namespace ATM.DataAccessLayer.Concrete
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string commandText = "SELECT * FROM ACCOUNTS";
-                using (SqlCommand command = new SqlCommand(commandText,connection))
+                using (SqlCommand command = new SqlCommand(commandText, connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())

@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATM.DataAccessLayer.Concrete
+namespace ATM.DataAccessLayer.Concrete.AdoNetDal
 {
-    public class CustomerRepository : IGenericRepository<Customer>
+    public class AdoNetCustomerDal : ICustomerDal
     {
+
         private string _connectionString;
-        public CustomerRepository()
+        public AdoNetCustomerDal()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["SQLDB"].ToString();
         }

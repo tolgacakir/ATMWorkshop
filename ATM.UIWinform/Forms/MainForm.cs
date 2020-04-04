@@ -22,6 +22,7 @@ namespace ATM.UIWinform.Forms
         IEntityLister<Customer, Account> AccountLister;
         LoginForm LoginForm;
 
+        public Customer CurrentCustomer { get; set; }
 
         private MainForm()
         {
@@ -42,6 +43,7 @@ namespace ATM.UIWinform.Forms
 
         public void Start(Customer customer,LoginForm loginForm)
         {
+            CurrentCustomer = customer;
             LoginForm = loginForm;
             lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             

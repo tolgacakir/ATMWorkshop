@@ -10,6 +10,7 @@ namespace ATM.UIWinform.Forms
 {
     public interface IMainForm
     {
+        Customer CurrentCustomer { get; }
         void NavigatePage(IPage page);
         void Start(Customer customer, LoginForm loginForm);
     }
