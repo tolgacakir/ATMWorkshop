@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ATM.Entites\ATM.Entites.csproj" />
-    <ProjectReference Include="..\TFramework.Core\TFramework.Core.csproj" />
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
   </ItemGroup>
 
 </Project>

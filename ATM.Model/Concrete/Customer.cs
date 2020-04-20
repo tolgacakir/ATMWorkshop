@@ -47,6 +47,7 @@ namespace ATM.Model.Concrete
 
         private void SetPropertiesForDal()
         {
+            PropertiesForDal = new PropertyInfo[4];
             PropertiesForDal.ToList().Add(this.GetType().GetProperty(nameof(Username)));
             PropertiesForDal.ToList().Add(this.GetType().GetProperty(nameof(FirstName)));
             PropertiesForDal.ToList().Add(this.GetType().GetProperty(nameof(LastName)));

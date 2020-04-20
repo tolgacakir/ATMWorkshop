@@ -1,13 +1,12 @@
-﻿using ATM.Model.Concrete;
+﻿using ATM.Entites.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using TFramework.Core.DataAccess;
 
 namespace ATM.DataAccessLayer.Abstract
 {
-    public interface IAccountDal :IGenericDal<Account>
+    public interface IAccountDal : IEntityRepository<Account>
     {
     }
 }

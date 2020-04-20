@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,16 +44,25 @@ namespace ATM.UIWinform.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Login(txtUsername.Text, txtPassword.Text);
+        }
+
+
+        public void Login(string username, string password)
+        {
+            //Contract.Requires(username.Contains("b"), "aaaa");
             IValidator usernameValidator = new UsernameValidator();
             IValidator passwordValidator = new PasswordValidator();
+
+
             try
             {
-                if (usernameValidator.Validate(txtUsername.Text) && passwordValidator.Validate(txtPassword.Text))
+                if (usernameValidator.Validate(username) && passwordValidator.Validate(password))
                 {
                     Customer customer = _customerManager.Login(txtUsername.Text, txtPassword.Text);
                     IMainForm mainForm = MainForm.GetSingletonInstance();
                     this.Hide();
-                    mainForm.Start(customer,this);
+                    mainForm.Start(customer, this);
                 }
             }
             catch (CustomerCouldNotFindException)
@@ -65,19 +75,23 @@ namespace ATM.UIWinform.Forms
             {
                 MessageBox.Show(ex.Message_);
             }
-            catch(PasswordValidationException)
+            catch (PasswordValidationException)
             {
                 MessageBox.Show("Invalid password!");
             }
-            catch(WrongPasswordException)
+            catch (WrongPasswordException)
             {
                 MessageBox.Show("Wrong password! Please enter correct password.");
                 txtPassword.Text = "";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

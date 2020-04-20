@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ATM.Entites\ATM.Entites.csproj" />
+    <Folder Include="Abstract\" />
+    <Folder Include="Complex\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TFramework.Core\TFramework.Core.csproj" />
   </ItemGroup>
 

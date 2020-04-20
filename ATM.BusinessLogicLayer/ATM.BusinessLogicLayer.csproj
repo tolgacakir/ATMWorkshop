@@ -60,7 +60,7 @@
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ATM.DataAccessLayer\ATM.DataAccessLayer.csproj">
-      <Project>{3E46282E-C6CC-4094-ADD3-DE43DE00D900}</Project>
+      <Project>{3e46282e-c6cc-4094-add3-de43de00d900}</Project>
       <Name>ATM.DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATM.Model\ATM.Model.csproj">

@@ -9,12 +9,12 @@ namespace ATM.DataAccessLayer2.AdoNetRepositories
         public Account GetByIban(string iban)
         {
             throw new NotImplementedException();
-            
+
         }
 
         public override void Delete(Account entity)
         {
-
+            throw new NotImplementedException();
         }
     }
 }
