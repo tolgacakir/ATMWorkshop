@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataAccess\AdoNet\" />
+    <Folder Include="DataAccess\NHibernate\" />
   </ItemGroup>
 
 </Project>

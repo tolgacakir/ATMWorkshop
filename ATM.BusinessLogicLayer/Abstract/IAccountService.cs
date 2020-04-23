@@ -1,16 +1,15 @@
-﻿
-using ATM.Model.Concrete;
+﻿using ATM.Entites.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ATM.BusinessLogicLayer.Abstract
 {
     public interface IAccountService
     {
-        void Update(Account account);
-        void Delete(Account account);
+        List<Account> GetAccountsByCustomer(Customer customer);
+        
+        Account Update(Account account);
+        bool Delete(Account account);
     }
 }

@@ -1,57 +1,43 @@
 ﻿using ATM.BusinessLogicLayer.Abstract;
+using ATM.BusinessLogicLayer.ValidationRules.FluentValidation;
 using ATM.DataAccessLayer.Abstract;
-using ATM.DataAccessLayer.Concrete;
-using ATM.DataAccessLayer.Concrete.AdoNetDal;
-using ATM.DataAccessLayer.Concrete.TestDal;
-using ATM.Model.Abstract;
-using ATM.Model.Concrete;
-using ATM.Model.Concrete.Exceptions;
+using ATM.Entites.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using TFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 
 namespace ATM.BusinessLogicLayer.Concrete
 {
-    public class CustomerManager :BaseEntityService<ICustomerDal>, ICustomerService
+    public class CustomerManager : ICustomerService
     {
-        public Customer CurrentCustomer { get; private set; }
+        private readonly ICustomerDal _customerDal;
 
-        public CustomerManager()
+        public CustomerManager(ICustomerDal customerDal)
         {
-            DalObject = new AdoNetCustomerDal();
+            _customerDal = customerDal;
         }
 
-
-
-        public void ChangePassword(string newPassword)
-        {
-            throw new NotImplementedException();
-        }
-
+        [FluentValidate(typeof(CustomerValidator)]
         public Customer Login(string username, string password)
         {
-            Customer customer = DalObject.Login(username,password);
-            if(customer == null)
-            {
-                throw new CustomerCouldNotFindException();
-            }
-            else if (customer.Password != password)
-            {
-                throw new WrongPasswordException();
-            }
-            else
-            {
-                return customer;
-            }
             
+            return _customerDal.Get(c => c.Username == username && c.Password == password);
+
         }
 
-        public void Logout()
+        [FluentValidate(typeof(CustomerValidator)]
+        public bool Logout(Customer customer)
         {
             throw new NotImplementedException();
         }
 
+        [FluentValidate(typeof(CustomerValidator)]
+        public bool ChangePassword(Customer customer)
+        {
+            //ValidatorTool.FluentValidate(new CustomerValidator(), customer);
+            _customerDal.Update(customer);
+            return true;
+        }
     }
 }

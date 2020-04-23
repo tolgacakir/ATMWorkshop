@@ -1,4 +1,5 @@
-﻿using ATM.Entites.Concrete;
+﻿using ATM.Entites.Complex;
+using ATM.Entites.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ATM.DataAccessLayer.Abstract
 {
     public interface IAccountDal : IEntityRepository<Account>
     {
+        List<AccountDetail> GetAccountDetails();
     }
 }

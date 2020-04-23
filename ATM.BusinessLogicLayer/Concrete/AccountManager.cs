@@ -1,44 +1,34 @@
 ﻿using ATM.BusinessLogicLayer.Abstract;
 using ATM.DataAccessLayer.Abstract;
-using ATM.DataAccessLayer.Concrete;
-using ATM.DataAccessLayer.Concrete.AdoNetDal;
-using ATM.DataAccessLayer.Concrete.ORM;
-using ATM.DataAccessLayer.Concrete.TestDal;
-using ATM.Model.Abstract;
-using ATM.Model.Concrete;
-using ATM.Model.Concrete.Transactions;
+using ATM.Entites.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ATM.BusinessLogicLayer.Concrete
 {
-    public class AccountManager : BaseEntityService<IAccountDal>, IAccountService, IEntityLister<Customer, Account>
+    public class AccountManager : IAccountService
     {
-        IAccountRepository AccountRepository;
-        public AccountManager()
+        private readonly IAccountDal _accountDal;
+
+        public AccountManager(IAccountDal accountDal)
         {
-            DalObject = new AdoNetAccountDal();
-            AccountRepository = new AccountRepository();
-        }
-        public void Update(Account account)
-        {
-            DalObject.Update(account);
+            _accountDal = accountDal;
         }
 
-        public IList<Account> GetList(Customer input)
+        public List<Account> GetAccountsByCustomer(Customer customer)
         {
-            IList<Account> accounts = DalObject.GetList()
-                .Where(a => a.Owner == input.Username)
-                .ToList();
-            return accounts;
+            return _accountDal.GetList(a => a.Owner == customer.Username);
         }
 
-        public void Delete(Account account)
+        public Account Update(Account account)
         {
-            DalObject.Delete(account);
+            return _accountDal.Update(account);
+        }
+
+        public bool Delete(Account account)
+        {
+            return _accountDal.Delete(account);
         }
     }
 }

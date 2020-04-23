@@ -119,10 +119,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATM.Model\ATM.Model.csproj">
-      <Project>{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}</Project>
-      <Name>ATM.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATM.Util\ATM.Util.csproj">
       <Project>{F0D0B7B1-B65E-4335-9DC8-22A789A36341}</Project>
       <Name>ATM.Util</Name>

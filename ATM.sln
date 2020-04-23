@@ -5,21 +5,19 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.UIWinform", "ATM.UIWinform\ATM.UIWinform.csproj", "{F467BF28-0318-4520-8C85-E52B42298543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Model", "ATM.Model\ATM.Model.csproj", "{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Util", "ATM.Util\ATM.Util.csproj", "{F0D0B7B1-B65E-4335-9DC8-22A789A36341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.DataAccessLayer2", "ATM.DataAccessLayer2\ATM.DataAccessLayer2.csproj", "{BC5494A1-B73F-4637-ABFD-848B99CC0098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFramework.Core", "TFramework.Core\TFramework.Core.csproj", "{3167410A-AB0C-4ADF-83A8-4DE7D609C96A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATM.DataAccessLayer3", "ATM.DataAccessLayer3\ATM.DataAccessLayer3.csproj", "{D4D50FBB-98EB-420E-BA84-173A16FEFBA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATM.DataAccessLayer", "ATM.DataAccessLayer\ATM.DataAccessLayer.csproj", "{35C6FC1F-DCD0-4A88-B4C0-03F18026308C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFramework.Core", "TFramework.Core\TFramework.Core.csproj", "{3167410A-AB0C-4ADF-83A8-4DE7D609C96A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATM.Entites", "ATM.Entites\ATM.Entites.csproj", "{684A870C-F1AC-43B9-A8E2-3F76821BEAA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.DataAccessLayer", "ATM.DataAccessLayer\ATM.DataAccessLayer.csproj", "{35C6FC1F-DCD0-4A88-B4C0-03F18026308C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATM.DataAccessLayer.Tests", "ATM.DataAccessLayer.Tests\ATM.DataAccessLayer.Tests.csproj", "{9444AB0A-1476-4078-9D02-B51B10CBFB64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Entites", "ATM.Entites\ATM.Entites.csproj", "{684A870C-F1AC-43B9-A8E2-3F76821BEAA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.BusinessLogicLayer", "ATM.BusinessLogicLayer\ATM.BusinessLogicLayer.csproj", "{1BB25BB6-B2DB-4AC6-9E93-23EFB3E8C3BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.DataAccessLayer.Tests", "ATM.DataAccessLayer.Tests\ATM.DataAccessLayer.Tests.csproj", "{9444AB0A-1476-4078-9D02-B51B10CBFB64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.BusinessLogicLayer.Tests", "ATM.BusinessLogicLayer.Tests\ATM.BusinessLogicLayer.Tests.csproj", "{0CEB2F72-5CE1-461C-B24E-FBB1E64F9DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,22 +29,10 @@ Global
 		{F467BF28-0318-4520-8C85-E52B42298543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F467BF28-0318-4520-8C85-E52B42298543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F467BF28-0318-4520-8C85-E52B42298543}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3F2A8E1-AB5E-4DF7-857F-5F2184CBF49D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F0D0B7B1-B65E-4335-9DC8-22A789A36341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F0D0B7B1-B65E-4335-9DC8-22A789A36341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0D0B7B1-B65E-4335-9DC8-22A789A36341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0D0B7B1-B65E-4335-9DC8-22A789A36341}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC5494A1-B73F-4637-ABFD-848B99CC0098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC5494A1-B73F-4637-ABFD-848B99CC0098}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC5494A1-B73F-4637-ABFD-848B99CC0098}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC5494A1-B73F-4637-ABFD-848B99CC0098}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4D50FBB-98EB-420E-BA84-173A16FEFBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4D50FBB-98EB-420E-BA84-173A16FEFBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4D50FBB-98EB-420E-BA84-173A16FEFBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4D50FBB-98EB-420E-BA84-173A16FEFBA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3167410A-AB0C-4ADF-83A8-4DE7D609C96A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3167410A-AB0C-4ADF-83A8-4DE7D609C96A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3167410A-AB0C-4ADF-83A8-4DE7D609C96A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +49,14 @@ Global
 		{9444AB0A-1476-4078-9D02-B51B10CBFB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9444AB0A-1476-4078-9D02-B51B10CBFB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9444AB0A-1476-4078-9D02-B51B10CBFB64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB25BB6-B2DB-4AC6-9E93-23EFB3E8C3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB25BB6-B2DB-4AC6-9E93-23EFB3E8C3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB25BB6-B2DB-4AC6-9E93-23EFB3E8C3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB25BB6-B2DB-4AC6-9E93-23EFB3E8C3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEB2F72-5CE1-461C-B24E-FBB1E64F9DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEB2F72-5CE1-461C-B24E-FBB1E64F9DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEB2F72-5CE1-461C-B24E-FBB1E64F9DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEB2F72-5CE1-461C-B24E-FBB1E64F9DEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
