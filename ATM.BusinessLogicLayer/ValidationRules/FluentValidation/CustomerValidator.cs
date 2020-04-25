@@ -10,6 +10,7 @@ namespace ATM.BusinessLogicLayer.ValidationRules.FluentValidation
     {
         public CustomerValidator()
         {
+            RuleFor(c => c.Username).NotNull();
             RuleFor(c => c.Username).NotEmpty();
             RuleFor(c => c.Username).MinimumLength(1).WithMessage("Username's length must be greater than 1");
             RuleFor(c => c.Username).MaximumLength(5).WithMessage("Username's length must be smaller than 5");

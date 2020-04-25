@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Castle.DynamicProxy" Version="2.2.0" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="KingAOP" Version="1.0.0" />
+    <PackageReference Include="PostSharp" Version="4.2.17" />
   </ItemGroup>
 
   <ItemGroup>

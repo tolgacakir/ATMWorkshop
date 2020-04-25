@@ -5,6 +5,7 @@ using ATM.Entites.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TFramework.Core.Aspects.KingAOP;
 using TFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 
 namespace ATM.BusinessLogicLayer.Concrete
@@ -18,7 +19,7 @@ namespace ATM.BusinessLogicLayer.Concrete
             _customerDal = customerDal;
         }
 
-        [FluentValidate(typeof(CustomerValidator)]
+        [FluentValidationAspect(typeof(CustomerValidator))]
         public Customer Login(string username, string password)
         {
             
@@ -26,13 +27,13 @@ namespace ATM.BusinessLogicLayer.Concrete
 
         }
 
-        [FluentValidate(typeof(CustomerValidator)]
+        [FluentValidationAspect(typeof(CustomerValidator))]
         public bool Logout(Customer customer)
         {
             throw new NotImplementedException();
         }
 
-        [FluentValidate(typeof(CustomerValidator)]
+        [FluentValidationAspect(typeof(CustomerValidator))]
         public bool ChangePassword(Customer customer)
         {
             //ValidatorTool.FluentValidate(new CustomerValidator(), customer);
